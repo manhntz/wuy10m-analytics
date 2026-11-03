@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wuy10M Analytics – Login callback</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<h1>Signed in</h1>
+<p>Copy the authorization code below into the analytics tool. You can close this window afterwards.</p>
+<p><code id="code">(no code in URL)</code></p>
+<p id="err" style="color:#b00"></p>
+<script>
+const p=new URLSearchParams(location.search);
+if(p.get("code"))document.getElementById("code").textContent=p.get("code");
+if(p.get("error"))document.getElementById("err").textContent=p.get("error")+": "+(p.get("error_description")||"");
+</script>
+</body></html>
