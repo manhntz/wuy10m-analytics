@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Wuy10M Analytics</title><link rel="stylesheet" href="style.css"></head>
+<title>Wuy10M Analytics</title><link rel="stylesheet" href="style.css"><link rel="icon" href="logo-512.png"></head>
 <body>
 <nav><a href="./">Home</a><a href="terms.html">Terms of Service</a><a href="privacy.html">Privacy Policy</a></nav>
 <h1>Wuy10M Analytics</h1>
@@ -17,6 +17,21 @@
 <li>It does not read data of any account other than the ones that explicitly sign in.</li>
 <li>It is not offered to the public and has no users outside our team.</li>
 </ul>
+<h2>Connect an account</h2>
+<p>Team members connect one of our TikTok accounts here. TikTok will ask for read-only permission; nothing is posted.</p>
+<p><a id="login" class="btn" href="#">Sign in with TikTok</a></p>
+<p id="hint" style="font-size:.9rem;color:#777"></p>
+<script>
+// Fill in the client key of the TikTok app (sandbox key while testing).
+const CLIENT_KEY = "YOUR_CLIENT_KEY";
+const REDIRECT = "https://manhntz.github.io/wuy10m-analytics/callback.html";
+const SCOPES = "user.info.basic,user.info.profile,user.info.stats,video.list";
+const state = Math.random().toString(36).slice(2);
+const url = "https://www.tiktok.com/v2/auth/authorize/?client_key=" + encodeURIComponent(CLIENT_KEY)
+  + "&scope=" + encodeURIComponent(SCOPES) + "&response_type=code&redirect_uri=" + encodeURIComponent(REDIRECT) + "&state=" + state;
+document.getElementById("login").href = url;
+if (CLIENT_KEY === "YOUR_CLIENT_KEY") document.getElementById("hint").textContent = "Client key not configured yet.";
+</script>
 <h2>Contact</h2>
 <p>manhntz@gmail.com</p>
 <footer>© 2026 Wuy10M</footer>
